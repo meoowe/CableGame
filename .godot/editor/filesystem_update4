@@ -1,2 +1,3 @@
-res://title.gd
 res://title.tscn
+res://game_scene.tscn
+res://options.tscn

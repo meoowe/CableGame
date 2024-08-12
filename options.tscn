@@ -1,0 +1,99 @@
+[gd_scene load_steps=4 format=3 uid="uid://c50hkttsktjqb"]
+
+[ext_resource type="Script" path="res://options.gd" id="1_qh23h"]
+[ext_resource type="Script" path="res://VolumeSlider.gd" id="1_vetta"]
+[ext_resource type="Texture2D" uid="uid://cvfijh8o3nysr" path="res://assets/img/icon/ethernet.png" id="3_t7rik"]
+
+[node name="options" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_qh23h")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_direction = 2
+layout_mode = 0
+offset_left = 510.0
+offset_top = 1.0
+offset_right = 852.0
+offset_bottom = 36.0
+text = "Options"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 281.0
+offset_top = 56.0
+offset_right = 789.0
+offset_bottom = 623.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+size_flags_vertical = 4
+text = "Master Volume"
+
+[node name="Master" type="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 2)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_vetta")
+busName = "Master"
+
+[node name="HSeparator3" type="HSeparator" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Music"
+
+[node name="Music" type="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_vetta")
+busName = "music"
+
+[node name="HSeparator2" type="HSeparator" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+text = "Sound effects"
+
+[node name="Sfx" type="HSlider" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(500, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+script = ExtResource("1_vetta")
+busName = "sfx"
+
+[node name="HSeparator" type="HSeparator" parent="ScrollContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 0
+offset_right = 66.0
+offset_bottom = 70.0
+texture_normal = ExtResource("3_t7rik")
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 9.0
+offset_right = 64.0
+offset_bottom = 24.0
+theme_override_font_sizes/normal_font_size = 10
+text = "Exit To Title"
+
+[connection signal="pressed" from="TextureButton" to="." method="_on_exit_button_pressed"]

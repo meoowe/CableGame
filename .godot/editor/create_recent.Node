@@ -1,4 +1,15 @@
-RichTextLabel
-Button
+OptionButton
 VBoxContainer
+HBoxContainer
+RichTextLabel
+TextureButton
+Button
+HSeparator
+ScrollContainer
+TextureRect
+GuiTransition
+AudioStreamPlayer
+Control
 MarginContainer
+HSlider
+Node
