@@ -1,0 +1,29 @@
+[gd_scene load_steps=2 format=3 uid="uid://b1ohwl1w4mc1s"]
+
+[ext_resource type="Script" path="res://game_scene.gd" id="1_jxvih"]
+
+[node name="gameScene" type="Node2D"]
+position = Vector2(17, 15)
+script = ExtResource("1_jxvih")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 216.0
+offset_bottom = 106.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Go back"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 415.0
+offset_top = 205.0
+offset_right = 698.0
+offset_bottom = 265.0
+text = "TrUsT  me iTs A GaMe!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]

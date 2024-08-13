@@ -1,3 +1,10 @@
-res://title.tscn
-res://game_scene.tscn
-res://options.tscn
+res://scenes/game_scene.tscn
+res://scenes/options.tscn
+res://scenes/Volume.tscn
+res://Video.tscn
+res://Managers/MusicManager.gd
+res://game_scene.gd
+res://scenes/Video.tscn
+res://scenes/title.tscn
+res://options.gd
+res://Video.gd

@@ -1,0 +1,126 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8nqocnwev1la"]
+
+[ext_resource type="Script" path="res://Video.gd" id="1_r8w2p"]
+[ext_resource type="Texture2D" uid="uid://bafu8itmbylxu" path="res://assets/img/icon/lens1.png" id="2_5n4n1"]
+[ext_resource type="Texture2D" uid="uid://djsfkfjqrlm6f" path="res://assets/img/icon/lens2.png" id="3_ftyiq"]
+[ext_resource type="Texture2D" uid="uid://oq4v5hdymtmh" path="res://assets/img/icon/lens3.png" id="4_fq6rg"]
+[ext_resource type="Texture2D" uid="uid://b4dsosoaghdgj" path="res://assets/img/icon/lens4.png" id="5_bwhc0"]
+
+[node name="Video" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_top = 1.0
+offset_right = -3.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_r8w2p")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+text = "Back"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 266.0
+offset_top = 273.0
+offset_right = 513.0
+offset_bottom = 506.0
+texture_normal = ExtResource("2_5n4n1")
+
+[node name="TextureButton2" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 7.0
+offset_top = 275.0
+offset_right = 223.0
+offset_bottom = 508.0
+texture_normal = ExtResource("3_ftyiq")
+
+[node name="TextureButton3" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = 251.0
+offset_top = 38.0
+offset_right = 498.0
+offset_bottom = 242.0
+texture_normal = ExtResource("4_fq6rg")
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+layout_mode = 2
+offset_left = -19.0
+offset_top = 56.0
+offset_right = 256.0
+offset_bottom = 239.0
+texture_normal = ExtResource("5_bwhc0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 33.0
+offset_right = 150.0
+offset_bottom = 56.0
+text = "1280x720"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 71.0
+offset_top = 243.0
+offset_right = 153.0
+offset_bottom = 266.0
+text = "1920x1080"
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 334.0
+offset_top = 14.0
+offset_right = 407.0
+offset_bottom = 37.0
+text = "1600x900"
+
+[node name="Label4" type="Label" parent="."]
+layout_mode = 0
+offset_left = 338.0
+offset_top = 256.0
+offset_right = 420.0
+offset_bottom = 279.0
+text = "2560x1440"
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 524.0
+offset_right = 358.0
+offset_bottom = 547.0
+text = "Click lens to select resolution"
+
+[node name="Label6" type="Label" parent="."]
+layout_mode = 0
+offset_left = 163.0
+offset_top = 548.0
+offset_right = 388.0
+offset_bottom = 571.0
+text = "Current Resolution: "
+
+[node name="HSeparator" type="HSeparator" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 234.0
+offset_right = 224.0
+offset_bottom = 246.0
+
+[node name="HSeparator2" type="HSeparator" parent="."]
+layout_mode = 0
+offset_left = 268.0
+offset_top = 234.0
+offset_right = 488.0
+offset_bottom = 246.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]
+[connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
+[connection signal="pressed" from="TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="TextureButton4" to="." method="_on_texture_button_4_pressed"]

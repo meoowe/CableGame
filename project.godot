@@ -11,23 +11,23 @@ config_version=5
 [application]
 
 config/name="CableGame"
-run/main_scene="res://title.tscn"
+run/main_scene="res://scenes/title.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-GuiTransitions="*res://addons/simple-gui-transitions/singleton.gd"
+SfxManager="*res://Managers/SfxManager.gd"
 
 [editor]
 
-movie_writer/movie_file="/home/aarav/IdeaProjects/CableGame/rec.avi"
+movie_writer/movie_file="/home/aarav/IdeaProjects/CableGame/rec.mp4"
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/simple-gui-transitions/plugin.cfg")
+enabled=PackedStringArray()
 
 [gui_transitions]
 
@@ -40,3 +40,8 @@ config/default/transition_type="QUAD"
 config/default/ease_type="IN_OUT"
 config/default/animation_enter=4
 config/default/animation_leave=4
+
+[rendering]
+
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(0.0751992, 0.250742, 0.30635, 1)
