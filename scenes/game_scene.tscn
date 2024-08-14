@@ -65,8 +65,9 @@ offset_bottom = 760.0
 texture = ExtResource("2_38y0g")
 
 [node name="Player" type="Area2D" parent="."]
-position = Vector2(523, 18)
+position = Vector2(523, 417)
 script = ExtResource("2_ex8f2")
+speed = 265
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
 sprite_frames = SubResource("SpriteFrames_j13mh")
@@ -79,15 +80,24 @@ shape = SubResource("RectangleShape2D_28dnq")
 position = Vector2(0, 68)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="wallRight"]
-position = Vector2(1097, 195)
+position = Vector2(1133, 175)
 shape = SubResource("RectangleShape2D_dm8tg")
 
 [node name="wallLeft" type="StaticBody2D" parent="."]
 position = Vector2(-103, 33)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="wallLeft"]
-position = Vector2(114, 226)
+position = Vector2(72, 200)
 shape = SubResource("RectangleShape2D_dm8tg")
+
+[node name="background" type="TextureRect" parent="."]
+show_behind_parent = true
+offset_left = -12.0
+offset_top = 30.0
+offset_right = 1126.0
+offset_bottom = 602.0
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
+[connection signal="changeLeft" from="Player" to="background" method="_on_player_change_left"]
+[connection signal="changeRight" from="Player" to="background" method="_on_player_change_right"]

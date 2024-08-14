@@ -13,7 +13,6 @@ func _ready():
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
 	audio_player.bus = "music"
-	audio_player.finished.connect(_on_audio_finished())
 	play_next_sound()
 func play_next_sound():
 	if audio_queue.size() > 0:
