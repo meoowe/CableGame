@@ -1,6 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1ohwl1w4mc1s"]
+[gd_scene load_steps=9 format=3 uid="uid://b1ohwl1w4mc1s"]
 
 [ext_resource type="Script" path="res://game_scene.gd" id="1_jxvih"]
+[ext_resource type="Texture2D" uid="uid://c1w0ijr1qbvra" path="res://assets/img/background_PLACEHOLDER.jpeg" id="2_38y0g"]
+[ext_resource type="Texture2D" uid="uid://cvfijh8o3nysr" path="res://assets/img/icon/ethernet.png" id="2_72suq"]
+[ext_resource type="Script" path="res://scenes/Player.gd" id="2_ex8f2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b50j4"]
+size = Vector2(1146, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j13mh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_72suq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28dnq"]
+size = Vector2(65.5, 67)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dm8tg"]
+size = Vector2(54, 474.5)
 
 [node name="gameScene" type="Node2D"]
 position = Vector2(17, 15)
@@ -18,12 +41,53 @@ layout_mode = 2
 text = "Go back"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="."]
-offset_left = 415.0
-offset_top = 205.0
-offset_right = 698.0
-offset_bottom = 265.0
+offset_left = 240.0
+offset_top = 3.0
+offset_right = 523.0
+offset_bottom = 63.0
 text = "TrUsT  me iTs A GaMe!"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
+[node name="ground" type="StaticBody2D" parent="."]
+position = Vector2(545, 461)
+
+[node name="hit" type="CollisionShape2D" parent="ground"]
+position = Vector2(10, 22)
+shape = SubResource("RectangleShape2D_b50j4")
+debug_color = Color(0.981857, 0, 0.367369, 0.42)
+
+[node name="TextureRect" type="TextureRect" parent="ground"]
+offset_left = -587.0
+offset_top = -8.0
+offset_right = 778.0
+offset_bottom = 760.0
+texture = ExtResource("2_38y0g")
+
+[node name="Player" type="Area2D" parent="."]
+position = Vector2(523, 18)
+script = ExtResource("2_ex8f2")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_j13mh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(0.25, -1.5)
+shape = SubResource("RectangleShape2D_28dnq")
+
+[node name="wallRight" type="StaticBody2D" parent="."]
+position = Vector2(0, 68)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallRight"]
+position = Vector2(1097, 195)
+shape = SubResource("RectangleShape2D_dm8tg")
+
+[node name="wallLeft" type="StaticBody2D" parent="."]
+position = Vector2(-103, 33)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="wallLeft"]
+position = Vector2(114, 226)
+shape = SubResource("RectangleShape2D_dm8tg")
+
 [connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
