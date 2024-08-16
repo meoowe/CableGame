@@ -6,7 +6,7 @@ signal Deafult
 var screen_size # Size of the game window.
 @onready var background = $"../background"
 @onready var character = $AnimatedSprite2D
-@onready var door = $"../Door/TextureRect"
+@onready var door = $"../Door2/TextureRect"
 
 
 var move_down = true

@@ -26,10 +26,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -65.0
-offset_top = -1.0
-offset_right = -65.0
-offset_bottom = -1.0
+offset_left = -67.0
+offset_top = -3.0
+offset_right = -67.0
+offset_bottom = -3.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("2_m6h18")
@@ -65,10 +65,10 @@ text = "Cable Game!"
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/TextureRect/Title"]
 layout_mode = 0
-offset_left = 1036.0
-offset_top = 614.0
-offset_right = 1212.0
-offset_bottom = 652.0
+offset_left = 1109.0
+offset_top = 658.0
+offset_right = 1285.0
+offset_bottom = 696.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TextureRect/Title/MarginContainer2"]
 layout_mode = 2
@@ -84,10 +84,10 @@ expand_icon = true
 
 [node name="MarginContainer3" type="MarginContainer" parent="VBoxContainer/TextureRect/Title"]
 layout_mode = 0
-offset_left = 86.0
-offset_top = 618.0
-offset_right = 257.0
-offset_bottom = 656.0
+offset_left = 81.0
+offset_top = 665.0
+offset_right = 252.0
+offset_bottom = 703.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/TextureRect/Title/MarginContainer3"]
 layout_mode = 2

@@ -8,6 +8,7 @@ var screen_size # Size of the game window.
 @onready var character = $AnimatedSprite2D
 @onready var door = $"../Door/TextureRect"
 @onready var laptop_label: Label = $"../laptopLabel"
+@onready var game_scene: Node2D = $".."
 
 
 var move_down = true
@@ -70,6 +71,8 @@ func _process(delta):
 
 func _on_body_entered(body):
 	if body.name == "wallLeft" :
+		game_scene.hide()
+		await get_tree().create_timer(0.2).timeout
 		get_tree().change_scene_to_file("res://scenes/it.tscn")
 	elif body.name == "wallRight":
 		get_tree().change_scene_to_file("res://scenes/game_scene.tscn")
