@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="KeybindResource" load_steps=7 format=3 uid="uid://vgdrm1lnbxag"]
+
+[ext_resource type="Script" path="res://KeybindResource.gd" id="1_pqs30"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_00bev"]
+device = -1
+physical_keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_cxxgk"]
+device = -1
+physical_keycode = 65
+unicode = 97
+
+[sub_resource type="InputEventKey" id="InputEventKey_eb667"]
+device = -1
+physical_keycode = 4194305
+
+[sub_resource type="InputEventKey" id="InputEventKey_e0xom"]
+device = -1
+physical_keycode = 68
+unicode = 100
+
+[sub_resource type="InputEventKey" id="InputEventKey_e03hq"]
+device = -1
+physical_keycode = 87
+unicode = 119
+
+[resource]
+script = ExtResource("1_pqs30")
+UP_KEY = SubResource("InputEventKey_e03hq")
+DOWN_KEY = SubResource("InputEventKey_00bev")
+LEFT_KEY = SubResource("InputEventKey_cxxgk")
+RIGHT_KEY = SubResource("InputEventKey_e0xom")
+PAUSE_KEY = SubResource("InputEventKey_eb667")

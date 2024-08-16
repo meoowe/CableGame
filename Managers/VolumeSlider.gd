@@ -18,4 +18,3 @@ func _onValueChanged(value: float) -> void:
 		busIndex,
 		linear_to_db(value)
 	)
-

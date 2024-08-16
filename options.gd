@@ -1,5 +1,4 @@
 extends Control
-
 @export
 var audio_queue: Array = [
 	load("res://assets/music/track1.mp3"),
@@ -8,7 +7,16 @@ var audio_queue: Array = [
 	load("res://assets/music/track4.mp3")
 ]
 var audio_player: AudioStreamPlayer
-
+var keybinds = createKeybindDict()
+@onready var keybind_resource = preload("res://scenes/PlayerKeybindDeafult.tres")
+func createKeybindDict() -> Dictionary:
+	var keybind_container_dict = {
+		keybind_resource.MOVE_LEFT: keybind_resource.move_left_key,
+		keybind_resource.MOVE_RIGHT: keybind_resource.move_right_key,
+		keybind_resource.MOVE_UP: keybind_resource.move_up_key,
+		keybind_resource.MOVE_DOWN: keybind_resource.move_down_key
+	}
+	return keybind_container_dict
 func _ready():
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
@@ -36,3 +44,8 @@ func _on_texture_button_2_pressed():
 func _on_texture_button_3_pressed():
 	SfxManager.play()
 	get_tree().change_scene_to_file("res://scenes/Video.tscn")
+
+
+func _on_texture_button_4_pressed():
+	SfxManager.play()
+	get_tree().change_scene_to_file("res://scenes/keybinds.tscn")

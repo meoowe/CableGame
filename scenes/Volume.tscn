@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5ywqmsbc2ouy"]
+[gd_scene load_steps=4 format=3 uid="uid://c5ywqmsbc2ouy"]
 
 [ext_resource type="Script" path="res://scenes/Volume.gd" id="1_8jcpf"]
 [ext_resource type="Script" path="res://Managers/VolumeSlider.gd" id="1_btv6o"]
+[ext_resource type="Theme" uid="uid://db15xvnncv14b" path="res://scenes/theme.tres" id="3_io3bx"]
 
 [node name="ScrollContainer" type="ScrollContainer"]
 offset_left = 281.0
@@ -68,6 +69,7 @@ layout_mode = 2
 
 [node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_io3bx")
 text = "Back"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

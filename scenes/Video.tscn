@@ -1,10 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8nqocnwev1la"]
+[gd_scene load_steps=8 format=3 uid="uid://c8nqocnwev1la"]
 
 [ext_resource type="Script" path="res://Video.gd" id="1_r8w2p"]
-[ext_resource type="Texture2D" uid="uid://bafu8itmbylxu" path="res://assets/img/icon/lens1.png" id="2_5n4n1"]
-[ext_resource type="Texture2D" uid="uid://djsfkfjqrlm6f" path="res://assets/img/icon/lens2.png" id="3_ftyiq"]
-[ext_resource type="Texture2D" uid="uid://oq4v5hdymtmh" path="res://assets/img/icon/lens3.png" id="4_fq6rg"]
-[ext_resource type="Texture2D" uid="uid://b4dsosoaghdgj" path="res://assets/img/icon/lens4.png" id="5_bwhc0"]
+[ext_resource type="Theme" uid="uid://db15xvnncv14b" path="res://scenes/theme.tres" id="2_drrpn"]
+[ext_resource type="Texture2D" uid="uid://do0fuotyu7oht" path="res://assets/img/monitor.png" id="2_xuisb"]
+[ext_resource type="Texture2D" uid="uid://b5w7sojv6lk5y" path="res://assets/img/monitor3.jpeg" id="3_xr4fs"]
+[ext_resource type="Texture2D" uid="uid://jadvfqvunaro" path="res://assets/img/monitor2.png" id="4_hsimh"]
+[ext_resource type="Texture2D" uid="uid://c44hedth4opdx" path="res://assets/img/monitor4.jpeg" id="5_ukvp7"]
+
+[sub_resource type="Environment" id="Environment_6anru"]
+background_mode = 3
+glow_enabled = true
 
 [node name="Video" type="Control"]
 layout_mode = 3
@@ -21,103 +26,108 @@ script = ExtResource("1_r8w2p")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
+theme = ExtResource("2_drrpn")
 text = "Back"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="TextureButton" type="TextureButton" parent="."]
+self_modulate = Color(0, 2.703, 20, 1)
 layout_mode = 2
-offset_left = 266.0
-offset_top = 273.0
-offset_right = 513.0
-offset_bottom = 506.0
-texture_normal = ExtResource("2_5n4n1")
+offset_left = 513.0
+offset_top = 23.0
+offset_right = 906.0
+offset_bottom = 254.0
+texture_normal = ExtResource("2_xuisb")
+
+[node name="Label4" type="Label" parent="TextureButton"]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 91.0
+offset_right = 272.0
+offset_bottom = 131.0
+theme_override_font_sizes/font_size = 29
+text = "2560x1440"
 
 [node name="TextureButton2" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 7.0
-offset_top = 275.0
-offset_right = 223.0
-offset_bottom = 508.0
-texture_normal = ExtResource("3_ftyiq")
+offset_left = 508.0
+offset_top = 253.0
+offset_right = 908.0
+offset_bottom = 507.0
+texture_normal = ExtResource("3_xr4fs")
+
+[node name="Label2" type="Label" parent="TextureButton2"]
+layout_mode = 0
+offset_left = 114.0
+offset_top = 94.0
+offset_right = 266.0
+offset_bottom = 134.0
+theme_override_font_sizes/font_size = 29
+text = "1920x1080"
 
 [node name="TextureButton3" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = 251.0
-offset_top = 38.0
-offset_right = 498.0
-offset_bottom = 242.0
-texture_normal = ExtResource("4_fq6rg")
+offset_left = 293.0
+offset_top = 62.0
+offset_right = 514.0
+offset_bottom = 208.0
+texture_normal = ExtResource("4_hsimh")
+
+[node name="Label3" type="Label" parent="TextureButton3"]
+layout_mode = 0
+offset_left = 46.0
+offset_top = 59.0
+offset_right = 181.0
+offset_bottom = 99.0
+theme_override_font_sizes/font_size = 29
+text = "1600x900"
 
 [node name="TextureButton4" type="TextureButton" parent="."]
 layout_mode = 2
-offset_left = -19.0
-offset_top = 56.0
-offset_right = 256.0
-offset_bottom = 239.0
-texture_normal = ExtResource("5_bwhc0")
+offset_left = 195.0
+offset_top = 201.0
+offset_right = 515.0
+offset_bottom = 415.0
+texture_normal = ExtResource("5_ukvp7")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="TextureButton4"]
 layout_mode = 0
-offset_left = 77.0
-offset_top = 33.0
-offset_right = 150.0
-offset_bottom = 56.0
+offset_left = 81.0
+offset_top = 78.0
+offset_right = 216.0
+offset_bottom = 118.0
+theme_override_font_sizes/font_size = 29
 text = "1280x720"
-
-[node name="Label2" type="Label" parent="."]
-layout_mode = 0
-offset_left = 71.0
-offset_top = 243.0
-offset_right = 153.0
-offset_bottom = 266.0
-text = "1920x1080"
-
-[node name="Label3" type="Label" parent="."]
-layout_mode = 0
-offset_left = 334.0
-offset_top = 14.0
-offset_right = 407.0
-offset_bottom = 37.0
-text = "1600x900"
-
-[node name="Label4" type="Label" parent="."]
-layout_mode = 0
-offset_left = 338.0
-offset_top = 256.0
-offset_right = 420.0
-offset_bottom = 279.0
-text = "2560x1440"
 
 [node name="Label5" type="Label" parent="."]
 layout_mode = 0
-offset_left = 133.0
-offset_top = 524.0
-offset_right = 358.0
-offset_bottom = 547.0
-text = "Click lens to select resolution"
+offset_left = 463.0
+offset_top = 548.0
+offset_right = 927.0
+offset_bottom = 588.0
+theme_override_font_sizes/font_size = 29
+text = "Click monitor to select resolution"
 
 [node name="Label6" type="Label" parent="."]
 layout_mode = 0
-offset_left = 163.0
-offset_top = 548.0
-offset_right = 388.0
-offset_bottom = 571.0
-text = "Current Resolution: "
+offset_left = 69.0
+offset_top = 508.0
+offset_right = 294.0
+offset_bottom = 531.0
+text = "1920x1080"
 
-[node name="HSeparator" type="HSeparator" parent="."]
+[node name="Label7" type="Label" parent="."]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 234.0
-offset_right = 224.0
-offset_bottom = 246.0
+offset_left = 60.0
+offset_top = 481.0
+offset_right = 285.0
+offset_bottom = 504.0
+text = "Current Resolution:
+"
 
-[node name="HSeparator2" type="HSeparator" parent="."]
-layout_mode = 0
-offset_left = 268.0
-offset_top = 234.0
-offset_right = 488.0
-offset_bottom = 246.0
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_6anru")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="TextureButton" to="." method="_on_texture_button_pressed"]

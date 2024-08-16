@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c50hkttsktjqb"]
+[gd_scene load_steps=11 format=3 uid="uid://c50hkttsktjqb"]
 
 [ext_resource type="Script" path="res://options.gd" id="1_l17h1"]
 [ext_resource type="Texture2D" uid="uid://dr1y3vcmvx12k" path="res://assets/img/icon/audio.jpeg" id="3_3r0so"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://b30uwjyurj65l" path="res://assets/img/options.png" id="4_uv6j1"]
 [ext_resource type="Texture2D" uid="uid://kiuka6subygv" path="res://assets/img/icon/camera.jpeg" id="5_nlegv"]
 [ext_resource type="Texture2D" uid="uid://dlofidjonq7em" path="res://assets/img/cables.png" id="7_md05x"]
+[ext_resource type="Texture2D" uid="uid://csnyw318e7x1k" path="res://assets/img/keyboard.jpeg" id="8_rh2hh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jogfq"]
 texture = ExtResource("7_md05x")
@@ -110,13 +111,30 @@ offset_right = 663.0
 offset_bottom = 381.0
 text = "Video Settings"
 
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 796.0
+offset_top = 364.0
+offset_right = 908.0
+offset_bottom = 387.0
+text = "Controls"
+
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_nhtbg")
 format = 2
-layer_0/tile_data = PackedInt32Array(655382, 2, 0, 589846, 2, 0, 524310, 2, 0, 458774, 2, 0, 393238, 2, 2, 393239, 2, 0, 393240, 2, 0, 393241, 2, 805306370, 327705, 2, 0, 262169, 2, 0, 589863, 2, 3, 524327, 2, 3, 458791, 2, 3, 393255, 2, 3, 327719, 65538, 1342177280, 327718, 2, 3, 327717, 2, 3, 327716, 2, 3, 327715, 2, 3, 327714, 2, 3, 327713, 2, 3, 327712, 2, 3, 327711, 65538, 1610612736, 262175, 2, 3, 655399, 2, 3)
+layer_0/tile_data = PackedInt32Array(655382, 2, 0, 589846, 2, 0, 524310, 2, 0, 458774, 2, 0, 393238, 2, 2, 393239, 2, 0, 393240, 2, 0, 393241, 2, 805306370, 327705, 2, 0, 262169, 2, 0, 589863, 2, 3, 524327, 2, 3, 458791, 2, 3, 655399, 2, 3, 655413, 65538, 1, 393255, 65538, 1342177280, 393254, 2, 3, 393253, 2, 3, 393252, 2, 3, 393251, 2, 3, 393250, 2, 3, 393249, 2, 3, 393248, 2, 3, 393247, 2, 3, 393246, 2, 3, 393245, 2, 3, 393244, 2, 3, 393243, 65538, 1610612736, 327707, 2, 3, 262171, 2, 3, 458798, 65538, 1, 393262, 65538, 1, 327726, 65538, 1342177283, 327710, 65538, 1, 327711, 65538, 1, 327712, 65538, 1, 327713, 65538, 1, 327714, 65538, 1, 327715, 65538, 1, 327716, 65538, 1, 327717, 65538, 1, 327718, 65538, 1, 327719, 65538, 1, 327720, 65538, 1, 327721, 65538, 1, 327722, 65538, 1, 327723, 65538, 1, 327724, 65538, 1, 327725, 65538, 1, 327709, 65538, 1610612739, 262173, 65538, 1, 655408, 65538, 1)
+
+[node name="TextureButton4" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 725.0
+offset_top = 128.0
+offset_right = 1023.0
+offset_bottom = 327.0
+texture_normal = ExtResource("8_rh2hh")
 
 [connection signal="pressed" from="TextureButton" to="." method="_on_exit_button_pressed"]
 [connection signal="pressed" from="TextureButton2" to="." method="_on_texture_button_2_pressed"]
 [connection signal="pressed" from="TextureButton3" to="." method="_on_texture_button_3_pressed"]
+[connection signal="pressed" from="TextureButton4" to="." method="_on_texture_button_4_pressed"]

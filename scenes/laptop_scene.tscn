@@ -1,0 +1,96 @@
+[gd_scene load_steps=3 format=3 uid="uid://lcpb6r5af8gp"]
+
+[ext_resource type="Script" path="res://scenes/laptop_scene.gd" id="1_kq8mo"]
+[ext_resource type="Texture2D" uid="uid://b18oqtfifcgrf" path="res://assets/img/icon/power_button.png" id="2_hl5bp"]
+
+[node name="laptopScene" type="Node2D"]
+position = Vector2(0, 13)
+script = ExtResource("1_kq8mo")
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+size = Vector2i(107, 100)
+item_count = 2
+item_0/text = "Exit"
+item_1/text = "Shutdown"
+item_1/id = 1
+
+[node name="powerButton" type="TextureButton" parent="."]
+offset_right = 64.0
+offset_bottom = 64.0
+tooltip_text = "Power"
+texture_normal = ExtResource("2_hl5bp")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 566.0
+offset_top = 261.0
+offset_right = 755.0
+offset_bottom = 466.0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 60
+text = "Log In"
+
+[node name="Label3" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Username"
+
+[node name="usernameEnter" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Username"
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 15
+text = "Password"
+
+[node name="passwordEnter" type="LineEdit" parent="HBoxContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Password"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 781.0
+offset_top = 440.0
+offset_right = 844.0
+offset_bottom = 471.0
+text = "Submit"
+
+[node name="correct" type="Label" parent="."]
+visible = false
+offset_left = 496.0
+offset_top = 240.0
+offset_right = 884.0
+offset_bottom = 263.0
+text = "Well done! you 'geussed' the login (PLACEHOLDER)"
+
+[node name="incorrect" type="Label" parent="."]
+visible = false
+offset_left = 574.0
+offset_top = 492.0
+offset_right = 962.0
+offset_bottom = 515.0
+text = "Incorrect, try again"
+
+[node name="musicPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"music"
+
+[node name="sfxPlayer" type="AudioStreamPlayer" parent="."]
+bus = &"sfx"
+
+[connection signal="id_pressed" from="PopupMenu" to="." method="_on_popup_menu_id_pressed"]
+[connection signal="pressed" from="powerButton" to="." method="_on_power_button_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="finished" from="musicPlayer" to="." method="_on_music_player_finished"]

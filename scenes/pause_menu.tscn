@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://rf6s230ixwd0"]
+
+[ext_resource type="Theme" uid="uid://db15xvnncv14b" path="res://scenes/theme.tres" id="1_lnslg"]
+
+[node name="PauseMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_lnslg")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("1_lnslg")
+text = "Resume"
+
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit To Title"
+
+[node name="Resume3" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Resume4" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
