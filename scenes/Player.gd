@@ -2,7 +2,6 @@ extends Area2D
 signal office
 signal IT_Room
 signal Deafult
-var Keys = load("res://KeybindResource.tres")
 @export var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
 @onready var background = $"../background"
@@ -45,16 +44,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var velocity = Vector2.ZERO # The player's movement vector.
-	if Input.is_action_pressed(Keys.RIGHT_KEY) and move_right:
+	if Input.is_action_pressed("right") and move_right:
 		move_left = true
 		velocity.x += 1
-	if Input.is_action_pressed(Keys.LEFT_KEY) and move_left:
+	if Input.is_action_pressed("left") and move_left:
 		move_right = true
 		velocity.x -= 1
-	if Input.is_action_pressed(Keys.DOWN_KEY) and move_down:
+	if Input.is_action_pressed("down") and move_down:
 		move_up = true
 		velocity.y += 1
-	if Input.is_action_pressed(Keys.UP_KEY) and move_up:
+	if Input.is_action_pressed("up")and move_up:
 		move_down = true
 		velocity.y -= 1
 	if velocity.length() > 0:

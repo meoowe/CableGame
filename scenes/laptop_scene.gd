@@ -19,6 +19,7 @@ func _ready():
 	music_player.play()
 func _on_popup_menu_id_pressed(id):
 	if id == 1:
+		music_player.stop()
 		sfx_player.stream = load("res://assets/sfx/powerDown.mp3")
 		sfx_player.play()
 		print_debug("played")

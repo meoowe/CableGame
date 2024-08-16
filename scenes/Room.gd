@@ -36,3 +36,4 @@ func _on_player_it_room():
 	flash = true
 	await get_tree().create_timer(8.0).timeout
 	flash = false
+ 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://b1ohwl1w4mc1s"]
+[gd_scene load_steps=26 format=4 uid="uid://b1ohwl1w4mc1s"]
 
 [ext_resource type="Theme" uid="uid://db15xvnncv14b" path="res://scenes/theme.tres" id="2_5juc4"]
 [ext_resource type="Script" path="res://scenes/Player.gd" id="2_ex8f2"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" path="res://scenes/Room.gd" id="6_f75us"]
 [ext_resource type="Texture2D" uid="uid://dyxdmgytr48b1" path="res://assets/img/rooms/office.jpeg" id="6_mql31"]
 [ext_resource type="Texture2D" uid="uid://crd3v10nd7uxq" path="res://assets/img/laptop.png" id="8_1vx7v"]
+[ext_resource type="PackedScene" uid="uid://rf6s230ixwd0" path="res://scenes/pause_menu.tscn" id="11_45ab6"]
 [ext_resource type="Texture2D" uid="uid://cfq4i5xvsdyxm" path="res://assets/img/door_closed.png" id="14_8seak"]
 [ext_resource type="Texture2D" uid="uid://cdim0a4dxburg" path="res://assets/img/table.png" id="14_y0tsp"]
 
@@ -22,6 +23,12 @@ var audio_queue: Array = [
 var audio_player: AudioStreamPlayer
 @onready var room = $Room
 @export var fade_duration: int = 5.0
+@onready var pause_menu: Control = $PauseMenu
+var paused = false
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed(\"pause\"):
+		pauseMenu()
+		paused = true
 func _ready():
 	audio_player = AudioStreamPlayer.new()
 	add_child(audio_player)
@@ -38,12 +45,21 @@ func _on_audio_finished():
 
 func _on_back_pressed():
 	SfxManager.play()
-	get_tree().change_scene_to_file(\"res://scenes/title.tscn\")
+	pauseMenu()
+	paused = true
 
 
 
 func _on_texture_button_pressed():
 	get_tree().change_scene_to_file(\"res://scenes/laptop_scene.tscn\")
+func pauseMenu():
+	if paused:
+		pause_menu.hide()
+		Engine.time_scale = 1
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0
+	paused = !paused
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b50j4"]
@@ -316,6 +332,9 @@ animation = &"new_animation"
 position = Vector2(0.25, -1.5)
 shape = SubResource("RectangleShape2D_28dnq")
 
+[node name="Camera2D" type="Camera2D" parent="Player"]
+position = Vector2(-1, -19)
+
 [node name="wallLeft" type="StaticBody2D" parent="."]
 position = Vector2(-103, 33)
 
@@ -381,7 +400,7 @@ offset_right = 657.0
 offset_bottom = 42.0
 theme = ExtResource("2_5juc4")
 theme_override_font_sizes/font_size = 40
-text = "Room 1: "
+text = "Room 1: Office"
 script = ExtResource("6_f75us")
 
 [node name="laptopLabel" type="Label" parent="."]
@@ -420,22 +439,6 @@ expand_mode = 1
 position = Vector2(41, 49)
 shape = SubResource("RectangleShape2D_3hrj4")
 
-[node name="Door2" type="StaticBody2D" parent="."]
-position = Vector2(1214, 483)
-
-[node name="TextureRect" type="TextureRect" parent="Door2"]
-offset_left = -21.0
-offset_top = 15.0
-offset_right = 32.0
-offset_bottom = 85.0
-texture = ExtResource("14_8seak")
-expand_mode = 1
-flip_h = true
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Door2"]
-position = Vector2(-30, 52)
-shape = SubResource("RectangleShape2D_3hrj4")
-
 [node name="table" type="Area2D" parent="."]
 position = Vector2(701, 313)
 
@@ -464,6 +467,15 @@ texture_normal = ExtResource("8_1vx7v")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="laptopCollider"]
 position = Vector2(709.25, 297.25)
 shape = SubResource("RectangleShape2D_r4vil")
+
+[node name="PauseMenu" parent="." instance=ExtResource("11_45ab6")]
+visible = false
+z_index = 235
+offset_left = 570.0
+offset_top = 310.0
+offset_right = 570.0
+offset_bottom = 310.0
+scale = Vector2(2, 2)
 
 [connection signal="Deafult" from="Player" to="Laptop" method="_on_player_deafult"]
 [connection signal="IT_Room" from="Player" to="Room" method="_on_player_it_room"]

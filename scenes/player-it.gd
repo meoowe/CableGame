@@ -36,19 +36,15 @@ func _process(delta):
 	if Input.is_action_pressed("right") and move_right:
 		move_left = true
 		velocity.x += 1
-		character.play("right")
 	if Input.is_action_pressed("left")and move_left:
 		move_right = true
 		velocity.x -= 1
-		character.play("left")
 	if Input.is_action_pressed("down") and move_down:
 		move_up = true
 		velocity.y += 1
-		character.play("down")
 	if Input.is_action_pressed("up")and move_up:
 		move_down = true
 		velocity.y -= 1
-		character.play("up")
 	if velocity.length() > 0:
 		velocity = velocity.normalized() * speed
 	else:

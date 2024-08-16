@@ -1,6 +1,7 @@
-[gd_scene load_steps=17 format=4 uid="uid://38emvneixltm"]
+[gd_scene load_steps=19 format=4 uid="uid://38emvneixltm"]
 
 [ext_resource type="Texture2D" uid="uid://6vk5h8sggtv6" path="res://assets/img/rooms/IT.jpeg" id="1_o7vxr"]
+[ext_resource type="Script" path="res://scenes/it.gd" id="1_r8ooi"]
 [ext_resource type="Texture2D" uid="uid://b017xghl11hss" path="res://assets/img/postitnote.png" id="2_nf522"]
 [ext_resource type="Script" path="res://scenes/postitnote.gd" id="3_cxxw7"]
 [ext_resource type="Texture2D" uid="uid://dm2dqsbikw2sh" path="res://assets/img/tilesets/Tile-Atlas 16x16.png" id="4_isspg"]
@@ -8,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cfq4i5xvsdyxm" path="res://assets/img/door_closed.png" id="6_i3phd"]
 [ext_resource type="Script" path="res://scenes/player-it.gd" id="7_xqf6p"]
 [ext_resource type="Texture2D" uid="uid://dvn6vn0qbl57v" path="res://assets/img/player/character.png" id="8_hppiq"]
+[ext_resource type="PackedScene" uid="uid://rf6s230ixwd0" path="res://scenes/pause_menu.tscn" id="10_xlshx"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qsgdk"]
 texture = ExtResource("4_isspg")
@@ -223,6 +225,7 @@ size = Vector2(1134, 58)
 
 [node name="IT" type="Node2D"]
 position = Vector2(17, 0)
+script = ExtResource("1_r8ooi")
 
 [node name="background" type="TextureRect" parent="."]
 show_behind_parent = true
@@ -331,5 +334,12 @@ position = Vector2(568, 571)
 position = Vector2(4, 33)
 shape = SubResource("RectangleShape2D_q72je")
 debug_color = Color(0.981857, 0, 0.367369, 0.42)
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_xlshx")]
+visible = false
+offset_left = 610.0
+offset_top = 302.0
+offset_right = 610.0
+offset_bottom = 302.0
 
 [connection signal="body_entered" from="Player" to="Player" method="_on_body_entered"]
